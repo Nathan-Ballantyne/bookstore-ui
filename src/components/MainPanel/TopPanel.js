@@ -23,6 +23,7 @@ const PanelText = styled.p`
     z-index: 1;
     &:hover{
         color: blueviolet;
+        cursor: pointer;
     }
 `;
 
