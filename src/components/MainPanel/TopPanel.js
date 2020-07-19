@@ -14,6 +14,13 @@ const Main = styled.div`
     text-align: center;
     text-decoration: none;
     z-index: 1;
+`;
+
+const PanelText = styled.p`
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    z-index: 1;
     &:hover{
         color: blueviolet;
     }
@@ -22,7 +29,9 @@ const Main = styled.div`
 function TopPanel() {
     return (
         <Main>
-            Bookstore
+            <PanelText>
+                Bookstore
+            </PanelText>
         </Main>
     );
 }
