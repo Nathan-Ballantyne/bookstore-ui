@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import SmallCardBar from '../SmallCard/SmallCardBar';
 
 const DashboardItem = styled.div`
     margin-left: 240px;
     margin-top: 100px;
     background-color: #EEEEEE;
-    z-index: 2;
+    z-index: 1;
     opacity: 1;
     height: 100%;
     width: 100%;
@@ -16,7 +17,9 @@ const DashboardItem = styled.div`
 
 function Dashboard() {
     return (
-        <DashboardItem>test</DashboardItem>
+        <DashboardItem>
+            <SmallCardBar/>
+        </DashboardItem>
     );
 }
 
