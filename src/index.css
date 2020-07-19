@@ -13,11 +13,14 @@ code {
 }
 
 .sidebar {
-  max-width: 240px;
+  width: 240px;
   height: 100vh;
   border: 1px solid rgba(0, 0, 0, 0.1);
   background-color: black;
-  opacity: 0.9;
+  opacity: 0.8;
+  z-index: 1;
+  overflow-x: hidden;
+  position: fixed;
 }
 
 .sidebar-item {
