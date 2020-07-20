@@ -11,7 +11,7 @@ const Bar = styled.div`
     width: 100%
 `;
 
-function SmallCardBar() {
+const smallCardBar = () => {
     return (
         <Bar>
             <SmallCard title="Books" details="List of all books" iconPath={bookIcon}/>
@@ -21,4 +21,4 @@ function SmallCardBar() {
     );
 }
 
-export default SmallCardBar;
+export default smallCardBar;

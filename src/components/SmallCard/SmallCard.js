@@ -41,7 +41,7 @@ const Icon = styled.img`
 `;
 
 
-function SmallCard({title = "title", details = "details", iconPath}) {
+const smallCard = ({title = "title", details = "details", iconPath}) => {
     Icon.defaultProps = {
         src: iconPath,
     };
@@ -56,4 +56,4 @@ function SmallCard({title = "title", details = "details", iconPath}) {
     );
 }
 
-export default SmallCard;
+export default smallCard;

@@ -4,7 +4,7 @@ import Divider from "@material-ui/core/Divider";
 import SidebarItem from './SidebarItem';
 
 
-function Sidebar({ items, depthStep, depth, expanded }) {
+const sidebar = ({ items, depthStep, depth, expanded }) => {
   return (
     <div className="sidebar">
       <List disablePadding dense>
@@ -27,4 +27,4 @@ function Sidebar({ items, depthStep, depth, expanded }) {
   );
 }
 
-export default Sidebar;
+export default sidebar;

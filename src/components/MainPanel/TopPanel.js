@@ -27,7 +27,7 @@ const PanelText = styled.p`
     }
 `;
 
-function TopPanel() {
+const topPanel = () => {
     return (
         <Main>
             <PanelText>
@@ -37,4 +37,4 @@ function TopPanel() {
     );
 }
 
-export default TopPanel;
+export default topPanel;

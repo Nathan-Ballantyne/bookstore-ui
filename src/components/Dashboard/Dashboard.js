@@ -15,7 +15,7 @@ const DashboardItem = styled.div`
     position: absolute;
 `;
 
-function Dashboard() {
+const dashboard = () => {
     return (
         <DashboardItem>
             <SmallCardBar/>
@@ -23,4 +23,4 @@ function Dashboard() {
     );
 }
 
-export default Dashboard;
+export default dashboard;
