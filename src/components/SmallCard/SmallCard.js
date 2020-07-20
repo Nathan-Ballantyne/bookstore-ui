@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Card = styled.div`
+const Card = styled.button`
     background-color: #FFFFFF;
+    border: none;
     height: 150px;
     width: 350px;
     font-size: 25px;
@@ -21,6 +22,12 @@ const Card = styled.div`
         cursor: pointer;
     }
 `;
+
+const test = () => alert('test');
+
+Card.defaultProps = {
+    onClick: test
+}
 
 const Detail = styled.p`
     color: grey;
