@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import SmallCard from './SmallCard';
 import bookIcon from '../../assets/images/book-icon.png';
 import swordIcon from '../../assets/images/sword-icon.png';
+import scienceIcon from '../../assets/images/science-icon.png';
 
 const Bar = styled.div`
     margin-top: 30px;
@@ -11,14 +12,20 @@ const Bar = styled.div`
     width: 100%
 `;
 
+const cardList = [
+    {title: 'Books', details: 'List of all books', icon: bookIcon},
+    {title: 'Fantasy', details: 'List of all Fantasy books', icon: swordIcon},
+    {title: 'Science', details: 'List of all Science books', icon: scienceIcon},
+];
+
 const smallCardBar = () => {
     return (
         <Bar>
-            <SmallCard title="Books" details="List of all books" iconPath={bookIcon}/>
-           
-            <SmallCard title="Fantasy" details="List of all Fantasy books" iconPath={swordIcon}/>
+            {cardList.map(card =>{
+                return <SmallCard title={card.title} details={card.details} icon={card.icon}/>
+            })}
         </Bar>
     );
-}
+};
 
 export default smallCardBar;
