@@ -1,7 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const Card = styled.button`
+const CardDark = styled.button`
+    background-color: #29303B;
+    border: none;
+    height: 150px;
+    width: 350px;
+    font-size: 25px;
+    color: white;
+    z-index: 1;
+    border-radius: 25px;
+    text-align: center;
+    position: relative;
+    margin-left: 20px;
+    box-shadow: 3px 3px 3px 3px grey; 
+    float:left;
+    transition: top ease 0.5s;
+    &:hover{
+        top: -6px;
+        left: -2px;
+        cursor: pointer;
+    }
+`;
+
+const CardLight = styled.button`
     background-color: #FFFFFF;
     border: none;
     height: 150px;
@@ -23,11 +45,6 @@ const Card = styled.button`
     }
 `;
 
-const test = () => alert('test');
-
-Card.defaultProps = {
-    onClick: test
-}
 
 const Detail = styled.p`
     color: grey;
@@ -38,7 +55,7 @@ const Detail = styled.p`
     font-size: 15px;
 `;
 
-const Icon = styled.img`
+const IconLight = styled.img`
     margin-top: 30px;
     margin-left: 10px;
     box-shadow: 3px 3px 3px 3px #EEEEEE; 
@@ -47,20 +64,60 @@ const Icon = styled.img`
     width: 32px;
 `;
 
+const IconDark = styled.img`
+    margin-top: 30px;
+    margin-left: 10px;
+    box-shadow: 3px 3px 3px 3px #1c2128; 
+    border-radius: 30px;
+    height: 32px;
+    width: 32px;
+`;
 
-const smallCard = ({title = "title", details = "details", icon}) => {
-    Icon.defaultProps = {
+
+
+const SmallCard = ({title = "title", details = "details", icon, dark = false}) => {
+   
+    const [ darkModeState, setDarkModestate ] = useState({
+        dark: dark,
+        card: CardLight,
+        icon: IconLight,
+    });
+
+    darkModeState.icon.defaultProps = {
         src: icon,
     };
+
+    const changeMode = () => {
+        if (darkModeState.dark === true){
+            setDarkModestate({
+                dark: false,
+                card: CardLight,
+                icon: IconLight,
+            });
+        } else {
+            setDarkModestate({
+                dark: true,
+                card: CardDark,
+                icon: IconDark,
+            });
+        }
+    };
+
+    darkModeState.card.defaultProps = {
+        onClick: changeMode
+    }
+
+    
+
     return (
-        <Card>
+        <darkModeState.card>
             {title}
-            <Icon></Icon>
+            <darkModeState.icon />
             <Detail>
                 {details}
             </Detail>
-        </Card>
+        </darkModeState.card>
     );
 }
 
-export default smallCard;
+export default SmallCard;
