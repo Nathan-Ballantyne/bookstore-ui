@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import SmallCardBar from '../SmallCard/SmallCardBar';
+import SmallCardBar from './SmallCard/SmallCardBar';
 
 const DashboardItem = styled.div`
     margin-left: 240px;
