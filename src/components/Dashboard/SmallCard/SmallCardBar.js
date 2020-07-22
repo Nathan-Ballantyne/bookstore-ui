@@ -22,7 +22,7 @@ const smallCardBar = () => {
     return (
         <Bar>
             {cardList.map(card =>{
-                return <SmallCard title={card.title} details={card.details} icon={card.icon}/>
+                return <SmallCard key={card.title} title={card.title} details={card.details} icon={card.icon}/>
             })}
         </Bar>
     );
