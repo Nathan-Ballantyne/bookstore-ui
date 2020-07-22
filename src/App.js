@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import Sidebar from './components/Sidebar/Sidebar';
 import TopPanel from './components/MainPanel/TopPanel';
 import Dashboard from './components/Dashboard/Dashboard';
+import AllBooksPage from './components/AllBooks/AllBooks';
 import styled from 'styled-components';
 import items from './components/Sidebar/Items';
 
@@ -29,16 +36,37 @@ const Background = styled.div`
     }
 `;
 
+//const toggleDarkMode 
 
-function App() {
-  return (
-    <>
-      <Background/>
-      <Sidebar items={items} />
-      <TopPanel />
-      <Dashboard/>
-    </>
-  )
+class App extends Component {
+
+  state = {
+    dark: false,
+  };
+
+
+
+  toggleDarkMode = () => {
+    this.setState({dark: !this.state.dark});
+  }
+
+  render() {
+    return (
+      <Router>
+        <Background />
+        <Sidebar items={items} />
+        <TopPanel dark={this.state.dark} />
+        <Switch>
+          <Route path="/allBooks">
+            <AllBooksPage />
+          </Route>
+          <Route path="/">
+            <Dashboard dark={this.state.dark}><button style={{color: "black", margin: "50px 50px 50px 50px"}} onClick={this.toggleDarkMode}>Dark Mode</button></Dashboard>
+          </Route>
+        </Switch>
+      </Router>
+    );
+  }
 }
 
 export default App

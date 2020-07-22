@@ -13,7 +13,7 @@ const CardDark = styled.button`
     text-align: center;
     position: relative;
     margin-left: 20px;
-    box-shadow: 3px 3px 3px 3px grey; 
+    box-shadow: 3px 3px 3px 3px black; 
     float:left;
     transition: top ease 0.5s;
     &:hover{
@@ -75,48 +75,49 @@ const IconDark = styled.img`
 
 
 
-const SmallCard = ({title = "title", details = "details", icon, dark = false}) => {
+const SmallCard = ({title = "title", details = "details", icon, dark}) => {
    
-    const [ darkModeState, setDarkModestate ] = useState({
-        dark: dark,
-        card: CardLight,
-        icon: IconLight,
-    });
+    // const [ darkModeState, setDarkModestate ] = useState({
+    //     dark: dark,
+    //     card: CardLight,
+    //     icon: IconLight,
+    // });
 
-    darkModeState.icon.defaultProps = {
+    // const changeMode = () => {
+    //     if (darkModeState.dark === true){
+    //         setDarkModestate({
+    //             dark: false,
+    //             card: CardLight,
+    //             icon: IconLight,
+    //         });
+    //     } else {
+    //         setDarkModestate({
+    //             dark: true,
+    //             card: CardDark,
+    //             icon: IconDark,
+    //         });
+    //     }
+    // };
+
+    // darkModeState.card.defaultProps = {
+    //     onClick: changeMode
+    // }
+
+    let CardMode = dark ? CardDark : CardLight;
+    let IconMode = dark ? IconDark : IconLight;
+
+    IconMode.defaultProps = {
         src: icon,
     };
 
-    const changeMode = () => {
-        if (darkModeState.dark === true){
-            setDarkModestate({
-                dark: false,
-                card: CardLight,
-                icon: IconLight,
-            });
-        } else {
-            setDarkModestate({
-                dark: true,
-                card: CardDark,
-                icon: IconDark,
-            });
-        }
-    };
-
-    darkModeState.card.defaultProps = {
-        onClick: changeMode
-    }
-
-    
-
     return (
-        <darkModeState.card>
+        <CardMode>
             {title}
-            <darkModeState.icon />
+            <IconMode />
             <Detail>
                 {details}
             </Detail>
-        </darkModeState.card>
+        </CardMode>
     );
 }
 

@@ -18,11 +18,11 @@ const cardList = [
     {title: 'Science', details: 'List of all Science books', icon: scienceIcon},
 ];
 
-const smallCardBar = () => {
+const smallCardBar = ({dark}) => {
     return (
         <Bar>
             {cardList.map(card =>{
-                return <SmallCard key={card.title} title={card.title} details={card.details} icon={card.icon}/>
+                return <SmallCard key={card.title} title={card.title} details={card.details} icon={card.icon} dark={dark} />
             })}
         </Bar>
     );
