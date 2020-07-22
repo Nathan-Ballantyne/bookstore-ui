@@ -67,7 +67,7 @@ const IconLight = styled.img`
 const IconDark = styled.img`
     margin-top: 30px;
     margin-left: 10px;
-    box-shadow: 3px 3px 3px 3px #1c2128; 
+    box-shadow: 3px 3px 3px 3px black; 
     border-radius: 30px;
     height: 32px;
     width: 32px;
