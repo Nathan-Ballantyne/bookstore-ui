@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const CardDark = styled.button`
@@ -75,33 +76,7 @@ const IconDark = styled.img`
 
 
 
-const SmallCard = ({title = "title", details = "details", icon, dark}) => {
-   
-    // const [ darkModeState, setDarkModestate ] = useState({
-    //     dark: dark,
-    //     card: CardLight,
-    //     icon: IconLight,
-    // });
-
-    // const changeMode = () => {
-    //     if (darkModeState.dark === true){
-    //         setDarkModestate({
-    //             dark: false,
-    //             card: CardLight,
-    //             icon: IconLight,
-    //         });
-    //     } else {
-    //         setDarkModestate({
-    //             dark: true,
-    //             card: CardDark,
-    //             icon: IconDark,
-    //         });
-    //     }
-    // };
-
-    // darkModeState.card.defaultProps = {
-    //     onClick: changeMode
-    // }
+const SmallCard = ({ title = "title", details = "details", icon, dark, link = '/' }) => {
 
     let CardMode = dark ? CardDark : CardLight;
     let IconMode = dark ? IconDark : IconLight;
@@ -111,13 +86,15 @@ const SmallCard = ({title = "title", details = "details", icon, dark}) => {
     };
 
     return (
-        <CardMode>
-            {title}
-            <IconMode />
-            <Detail>
-                {details}
-            </Detail>
-        </CardMode>
+        <Link to={link}>
+            <CardMode>
+                {title}
+                <IconMode />
+                <Detail>
+                    {details}
+                </Detail>
+            </CardMode>
+        </Link>
     );
 }
 
