@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import SearchBar from './SearchBar';
 
@@ -20,7 +21,7 @@ const HeaderPanelLight = styled.div`
 const HeaderPanelDark = styled.div`
     display: inline-block;
     margin-left: 240px;
-    color:  #818181;
+    color:  white;
     font-size: 30px;
     background-color: #2D2D2D;
     height: 100px;
@@ -34,8 +35,8 @@ const HeaderPanelDark = styled.div`
 
 const PanelText = styled.p`
     text-align: center;
-    text-decoration: none;
     display: inline-block;
+    color: #818181;
     z-index: 1;
     &:hover{
         color: blueviolet;
@@ -43,15 +44,17 @@ const PanelText = styled.p`
     }
 `;
 
-const topPanel = ({dark}) => {
+const topPanel = ({ dark }) => {
 
     let HeaderPanel = dark ? HeaderPanelDark : HeaderPanelLight;
 
     return (
         <HeaderPanel>
-            <PanelText>
-                Bookstore
-            </PanelText>
+            <Link to='/'>
+                <PanelText>
+                    Bookstore
+                </PanelText>
+            </Link>
             <SearchBar />
         </HeaderPanel>
     );
