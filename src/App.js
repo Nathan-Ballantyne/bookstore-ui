@@ -6,8 +6,8 @@ import {
 } from "react-router-dom";
 import Sidebar from './components/Sidebar/Sidebar';
 import TopPanel from './components/MainPanel/TopPanel';
-import Dashboard from './components/Dashboard/Dashboard';
-import AllBooksPage from './components/AllBooks/AllBooks';
+import Dashboard from './components/Pages/Dashboard/Dashboard';
+import AllBooksPage from './components/Pages/AllBooks/AllBooks';
 import styled from 'styled-components';
 import items from './components/Sidebar/Items';
 
@@ -65,19 +65,21 @@ class App extends Component {
       <Router>
         <Background />
         <Sidebar items={items} />
-        <TopPanel dark={this.state.dark} />
+        <TopPanel dark={this.state.dark}>
+          <button
+            style={DarkModeButton}
+            onClick={this.toggleDarkMode}>
+            {mode}
+          </button>
+        </TopPanel>
         <Switch>
           <Route path="/all">
             <AllBooksPage />
           </Route>
           <Route path="/">
-            <Dashboard dark={this.state.dark}>
-              <button
-                style={DarkModeButton}
-                onClick={this.toggleDarkMode}>
-                {mode}
-              </button>
-            </Dashboard>
+            <Dashboard 
+            dark={this.state.dark} 
+            />
           </Route>
         </Switch>
       </Router>
