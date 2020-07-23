@@ -44,7 +44,7 @@ const PanelText = styled.p`
     }
 `;
 
-const topPanel = ({ dark }) => {
+const topPanel = ({ dark, children }) => {
 
     let HeaderPanel = dark ? HeaderPanelDark : HeaderPanelLight;
 
@@ -56,6 +56,7 @@ const topPanel = ({ dark }) => {
                 </PanelText>
             </Link>
             <SearchBar />
+            {children}
         </HeaderPanel>
     );
 }
