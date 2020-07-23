@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import Sidebar from './components/Sidebar/Sidebar';
 import TopPanel from './components/MainPanel/TopPanel';
@@ -36,7 +35,6 @@ const Background = styled.div`
     }
 `;
 
-//const toggleDarkMode 
 
 class App extends Component {
 
@@ -44,24 +42,42 @@ class App extends Component {
     dark: false,
   };
 
-
-
   toggleDarkMode = () => {
-    this.setState({dark: !this.state.dark});
+    this.setState({ dark: !this.state.dark });
   }
 
   render() {
+
+    const DarkModeButton = {
+      marginLeft: '100px',
+      marginBottom: '100px',
+      borderRadius: '25px',
+      backgroundColor: this.state.dark ? '#818181' : 'black',
+      color: this.state.dark ? 'black' : '#818181',
+      padding: '5px 5px 5px 5px',
+      border: 'none',
+      boxShadow: this.state.dark ? '2px 2px 2px 2px black' : '2px 2px 2px 2px grey',
+    };
+
+    let mode = this.state.dark ? 'Light Mode' : 'Dark Mode';
+
     return (
       <Router>
         <Background />
         <Sidebar items={items} />
         <TopPanel dark={this.state.dark} />
         <Switch>
-          <Route path="/allBooks">
+          <Route path="/all">
             <AllBooksPage />
           </Route>
           <Route path="/">
-            <Dashboard dark={this.state.dark}><button style={{color: "black", margin: "50px 50px 50px 50px"}} onClick={this.toggleDarkMode}>Dark Mode</button></Dashboard>
+            <Dashboard dark={this.state.dark}>
+              <button
+                style={DarkModeButton}
+                onClick={this.toggleDarkMode}>
+                {mode}
+              </button>
+            </Dashboard>
           </Route>
         </Switch>
       </Router>
