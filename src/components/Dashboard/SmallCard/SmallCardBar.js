@@ -13,16 +13,25 @@ const Bar = styled.div`
 `;
 
 const cardList = [
-    {title: 'Books', details: 'List of all books', icon: bookIcon},
-    {title: 'Fantasy', details: 'List of all Fantasy books', icon: swordIcon},
-    {title: 'Science', details: 'List of all Science books', icon: scienceIcon},
+    {title: 'Books', details: 'List of all books', icon: bookIcon, link: '/all'},
+    {title: 'Fantasy', details: 'List of all Fantasy books', icon: swordIcon, link: '/fantasy'},
+    {title: 'Science', details: 'List of all Science books', icon: scienceIcon, link: '/science'},
 ];
 
 const smallCardBar = ({dark}) => {
     return (
         <Bar>
             {cardList.map(card =>{
-                return <SmallCard key={card.title} title={card.title} details={card.details} icon={card.icon} dark={dark} />
+                return (
+                    <SmallCard 
+                    key={card.title} 
+                    title={card.title} 
+                    details={card.details} 
+                    icon={card.icon} 
+                    dark={dark} 
+                    link={card.link}
+                    />
+                    );
             })}
         </Bar>
     );
