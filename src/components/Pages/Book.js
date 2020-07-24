@@ -2,16 +2,21 @@ import React from 'react';
 import styled from 'styled-components';
 
 const BookContainer = styled.div`
-width: 250px;
-height: 340px;
-margin-left: 200px;
-margin-top: 20px;
-background-color: white;
-border-radius: 25px;
-text-align: center;
-position: relative;
-margin-left: 20px;
-box-shadow: 3px 3px 3px 3px grey; 
+    width: 250px;
+    height: 340px;
+    margin-left: 200px;
+    margin-top: 20px;
+    background-color: ${props => props.dark ? '#29303B' : '#FFFFFF'};
+    border-radius: 25px;
+    transition: transform .3s;
+    text-align: center;
+    position: relative;
+    margin-left: 20px;
+    box-shadow: 3px 3px 3px 3px ${props => props.dark ? 'black' : 'grey'}; 
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.05);
+    }
 `;
 
 const P = styled.p`
@@ -20,9 +25,9 @@ const P = styled.p`
 `;
 
 
-const book = ({id, title, author, releaseYear, pageCount, cover, series, readStatus, rating}) => {
+const book = ({id, title, author, releaseYear, pageCount, cover, series, readStatus, rating, dark = false}) => {
     return(
-        <BookContainer>
+        <BookContainer dark={dark}>
             
                 <P>ID:           {id}</P>
                 <P>Title:        {title}</P>
