@@ -55,7 +55,7 @@ const topPanel = ({ dark, children }) => {
                     Bookstore
                 </PanelText>
             </Link>
-            <SearchBar />
+            <SearchBar dark={dark} />
             {children}
         </HeaderPanel>
     );
