@@ -16,11 +16,10 @@ const Card = styled.button`
     margin-left: 20px;
     box-shadow: 3px 3px 3px 3px ${props => props.dark ? 'black' : 'grey'}; 
     float:left;
-    transition: top ease 0.5s;
+    transition: transform .3s;
     &:hover{
-        top: -6px;
-        left: -2px;
         cursor: pointer;
+        transform: scale(1.05);
     }
 `;
 
