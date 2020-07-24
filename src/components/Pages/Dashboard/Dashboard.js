@@ -21,7 +21,7 @@ const dashboard = ({dark, children}) => {
     return (
         <Dashboard dark={dark}>
             <SmallCardBar dark={dark}/>
-            <Graph dark={dark}/>
+            {/* <Graph dark={dark}/> */}
             {children}
         </Dashboard>
     );
