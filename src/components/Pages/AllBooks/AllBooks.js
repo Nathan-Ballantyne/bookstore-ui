@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Book from '../Book';
+import Book from '../../Books/Book';
 import { Dashboard } from '../Dashboard/Dashboard';
 
 
