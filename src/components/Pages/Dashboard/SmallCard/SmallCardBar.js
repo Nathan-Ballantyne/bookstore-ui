@@ -8,7 +8,7 @@ import scienceIcon from '../../../../assets/images/science-icon.png';
 const Bar = styled.div`
     margin-top: 30px;
     margin-left: 10px;
-    z-index: 1;
+    z-index: 2;
     width: 100%
 `;
 
