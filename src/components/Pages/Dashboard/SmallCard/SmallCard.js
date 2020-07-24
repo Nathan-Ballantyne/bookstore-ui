@@ -9,7 +9,7 @@ const Card = styled.button`
     width: 350px;
     font-size: 25px;
     color: ${props => props.dark ? 'white' : 'grey'};
-    z-index: 1;
+    z-index: 3;
     border-radius: 25px;
     text-align: center;
     position: relative;
@@ -26,7 +26,8 @@ const Card = styled.button`
 
 const Detail = styled.p`
     color: grey;
-    font-family: Roboto,Helvetica,Arial,sans-serif;
+    font-family: Roboto;
+    font-weight: normal;
     text-align: left;
     padding-left: 20px;
     padding-top: 15px;
