@@ -2,41 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const CardDark = styled.button`
-    background-color: #29303B;
+const Card = styled.button`
+    background-color: ${props => props.dark ? '#29303B' : '#FFFFFF'};
     border: none;
     height: 150px;
     width: 350px;
     font-size: 25px;
-    color: white;
+    color: ${props => props.dark ? 'white' : 'grey'};
     z-index: 1;
     border-radius: 25px;
     text-align: center;
     position: relative;
     margin-left: 20px;
-    box-shadow: 3px 3px 3px 3px black; 
-    float:left;
-    transition: top ease 0.5s;
-    &:hover{
-        top: -6px;
-        left: -2px;
-        cursor: pointer;
-    }
-`;
-
-const CardLight = styled.button`
-    background-color: #FFFFFF;
-    border: none;
-    height: 150px;
-    width: 350px;
-    font-size: 25px;
-    color: grey;
-    z-index: 1;
-    border-radius: 25px;
-    text-align: center;
-    position: relative;
-    margin-left: 20px;
-    box-shadow: 3px 3px 3px 3px grey; 
+    box-shadow: 3px 3px 3px 3px ${props => props.dark ? 'black' : 'grey'}; 
     float:left;
     transition: top ease 0.5s;
     &:hover{
@@ -56,19 +34,10 @@ const Detail = styled.p`
     font-size: 15px;
 `;
 
-const IconLight = styled.img`
+const Icon = styled.img`
     margin-top: 30px;
     margin-left: 10px;
-    box-shadow: 3px 3px 3px 3px #EEEEEE; 
-    border-radius: 30px;
-    height: 32px;
-    width: 32px;
-`;
-
-const IconDark = styled.img`
-    margin-top: 30px;
-    margin-left: 10px;
-    box-shadow: 3px 3px 3px 3px black; 
+    box-shadow: 3px 3px 3px 3px ${props => props.dark ? 'black' : '#EEEEEE'}; 
     border-radius: 30px;
     height: 32px;
     width: 32px;
@@ -78,22 +47,19 @@ const IconDark = styled.img`
 
 const SmallCard = ({ title = "title", details = "details", icon, dark, link = '/' }) => {
 
-    let CardMode = dark ? CardDark : CardLight;
-    let IconMode = dark ? IconDark : IconLight;
-
-    IconMode.defaultProps = {
+    Icon.defaultProps = {
         src: icon,
     };
 
     return (
         <Link to={link}>
-            <CardMode>
+            <Card dark={dark}>
                 {title}
-                <IconMode />
+                <Icon dark={dark}/>
                 <Detail>
                     {details}
                 </Detail>
-            </CardMode>
+            </Card>
         </Link>
     );
 }
