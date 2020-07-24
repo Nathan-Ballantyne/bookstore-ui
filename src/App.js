@@ -74,7 +74,7 @@ class App extends Component {
         </TopPanel>
         <Switch>
           <Route path="/all">
-            <AllBooksPage />
+            <AllBooksPage dark={this.state.dark} />
           </Route>
           <Route path="/">
             <Dashboard 
