@@ -4,11 +4,10 @@ import styled from 'styled-components';
 const BookContainer = styled.div`
     width: 250px;
     height: 340px;
-    margin-left: 200px;
-    margin-top: 20px;
+    margin: 20px 0px 20px 200px;
     background-color: ${props => props.dark ? '#29303B' : '#FFFFFF'};
     border-radius: 25px;
-    transition: transform .3s;
+    transition: transform .3s, 500ms linear;
     text-align: center;
     position: relative;
     margin-left: 20px;
