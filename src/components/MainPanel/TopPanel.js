@@ -3,27 +3,12 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import SearchBar from './SearchBar';
 
-const HeaderPanelLight = styled.div`
+const HeaderPanel = styled.div`
     display: inline-block;
     margin-left: 240px;
-    color:  #818181;
+    color:  ${props => props.dark ? 'white' : '#818181' };
     font-size: 30px;
-    background-color: #EEEEEE;
-    height: 100px;
-    position: absolute;
-    width: 100%;
-    text-align: left;
-    padding-left: 30px;
-    text-decoration: none;
-    z-index: 1;
-`;
-
-const HeaderPanelDark = styled.div`
-    display: inline-block;
-    margin-left: 240px;
-    color:  white;
-    font-size: 30px;
-    background-color: #2D2D2D;
+    background-color: ${props => props.dark ? '#2D2D2D' : '#EEEEEE' };
     height: 100px;
     position: absolute;
     width: 100%;
@@ -39,24 +24,37 @@ const PanelText = styled.p`
     color: #818181;
     z-index: 1;
     &:hover{
-        color: blueviolet;
+        color: #4AC694;
         cursor: pointer;
     }
 `;
 
-const topPanel = ({ dark, children }) => {
+const DarkModeButton = styled.button`
+    margin-left: 100px;
+    margin-bottom: 100px;
+    border-radius: 25px;
+    background-color: ${props => props.dark ? '#818181' : 'black' };
+    color: ${props => props.dark ? 'aqua' : '#4AC694' };
+    padding: 5px 5px 5px 5px;
+    border: none;
+    box-shadow: 2px 2px 2px 2px ${props => props.dark ? 'black' : 'grey' };
+  `;
 
-    let HeaderPanel = dark ? HeaderPanelDark : HeaderPanelLight;
+const topPanel = ({ dark, click }) => {
+
+    let mode = dark ? 'Light Mode' : 'Dark Mode'
 
     return (
-        <HeaderPanel>
+        <HeaderPanel dark={dark}>
             <Link to='/'>
                 <PanelText>
                     Bookstore
                 </PanelText>
             </Link>
             <SearchBar dark={dark} />
-            {children}
+            <DarkModeButton dark={dark} onClick={click}>
+                {mode}
+            </DarkModeButton>
         </HeaderPanel>
     );
 }
