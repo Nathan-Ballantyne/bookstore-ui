@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import SmallCardBar from './SmallCard/SmallCardBar';
-import Graph from './StatGraphs/StatGraph';
+//import Graph from './StatGraphs/StatGraph';
 
 
 export const Dashboard = styled.div`
