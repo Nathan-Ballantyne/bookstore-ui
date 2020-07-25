@@ -42,36 +42,17 @@ class App extends Component {
     dark: false,
   };
 
-  toggleDarkMode = () => {
+  toggleDarkMode = async () => {
     this.setState({ dark: !this.state.dark });
   }
 
   render() {
 
-    const DarkModeButton = {
-      marginLeft: '100px',
-      marginBottom: '100px',
-      borderRadius: '25px',
-      backgroundColor: this.state.dark ? '#818181' : 'black',
-      color: this.state.dark ? 'black' : '#818181',
-      padding: '5px 5px 5px 5px',
-      border: 'none',
-      boxShadow: this.state.dark ? '2px 2px 2px 2px black' : '2px 2px 2px 2px grey',
-    };
-
-    let mode = this.state.dark ? 'Light Mode' : 'Dark Mode';
-
     return (
       <Router>
         <Background />
         <Sidebar items={items} />
-        <TopPanel dark={this.state.dark}>
-          <button
-            style={DarkModeButton}
-            onClick={this.toggleDarkMode}>
-            {mode}
-          </button>
-        </TopPanel>
+        <TopPanel dark={this.state.dark} click={this.toggleDarkMode}/>
         <Switch>
           <Route path="/all">
             <AllBooksPage dark={this.state.dark} />
