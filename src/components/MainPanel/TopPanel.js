@@ -15,6 +15,7 @@ const HeaderPanel = styled.div`
     text-align: left;
     padding-left: 30px;
     text-decoration: none;
+    transition: 500ms linear;
     z-index: 1;
 `;
 

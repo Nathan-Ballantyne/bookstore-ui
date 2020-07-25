@@ -14,6 +14,9 @@ export const Dashboard = styled.div`
     width: 100%;
     font-size: 30px;
     position: absolute;
+    transition: 500ms linear;
+    display: flex;
+    flex-wrap: wrap;
 `;
 
 const dashboard = ({dark, children}) => {
