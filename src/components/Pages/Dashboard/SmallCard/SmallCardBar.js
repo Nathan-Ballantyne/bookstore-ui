@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import SmallCard from './SmallCard';
-import bookIcon from '../../../../assets/images/book-icon.png';
-import swordIcon from '../../../../assets/images/sword-icon.png';
-import scienceIcon from '../../../../assets/images/science-icon.png';
+import bookIcon from '../../../../assets/icons/book-icon.png';
+import swordIcon from '../../../../assets/icons/sword-icon.png';
+import scienceIcon from '../../../../assets/icons/science-icon.png';
 
 const Bar = styled.div`
     margin-top: 30px;
