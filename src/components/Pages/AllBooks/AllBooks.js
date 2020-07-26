@@ -24,7 +24,6 @@ import { Dashboard } from "../Dashboard/Dashboard";
 class AllBooksPage extends Component {
   constructor(props) {
     super(props);
-    this.dark = props.dark;
     this.state = {
       bookRes: [],
     };
@@ -34,13 +33,13 @@ class AllBooksPage extends Component {
     fetch("/api/allBooks")
       .then((res) => res.json())
       .then((res) => this.setState({ bookRes: res }))
-      .catch(console.log('call to /api/allBooks failed'));
+      .catch(err => console.log(err));
   }
 
   render() {
     return (
-      <Dashboard dark={this.dark}>
-        {this.state.bookRes.map((book) => {
+      <Dashboard dark={this.props.dark}>
+        {this.state.bookRes !== [] ? this.state.bookRes.map((book) => {
           return (
             <Book
               id={book.id}
@@ -56,7 +55,7 @@ class AllBooksPage extends Component {
               key={book.id}
             />
           );
-        })}
+        }) : null}
       </Dashboard>
     );
   }
