@@ -2,30 +2,26 @@ import React, { Component } from "react";
 //import styled from 'styled-components';
 import Book from "../../Books/Book";
 import { Dashboard } from "../Dashboard/Dashboard";
-
-// const book = {
-//   id: 1,
-//   title: "The Name of the Wind",
-//   author: "Patrick Rothfuss",
-//   releaseYear: "2008",
-//   pageCount: 672,
-//   cover: "location",
-//   series: "Kingkiller Chronicle",
-//   readStatus: "read",
-//   rating: 10,
-// };
-
-// const fetchAllBooks = async () => {
-//   const response = await fetch("/allBooks");
-//   const body = await response.json();
-//   return body;
-// };
+import NOTW from "../../../assets/images/name_of_the_wind_cover.jpg";
+import Oathbringer from "../../../assets/images/oathbringer_cover.jpg";
+import SlowRegard from "../../../assets/images/the_slow_regard_of_silent_things_cover.jpg";
+import WayOfKings from "../../../assets/images/the_way_of_kings_cover.png";
+import WiseMan from "../../../assets/images/the_wise_mans_fear_cover.jpg";
+import Words from "../../../assets/images/words_of_radiance_cover.jpg";
 
 class AllBooksPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
       bookRes: [],
+      coverArt: [
+          {cover: NOTW},
+          {cover: WiseMan},
+          {cover: SlowRegard},
+          {cover: WayOfKings},
+          {cover: Words},
+          {cover: Oathbringer},
+      ]
     };
   }
 
@@ -45,11 +41,11 @@ class AllBooksPage extends Component {
               id={book.id}
               title={book.title}
               author={book.author}
-              releaseYear={book.releaseYear}
-              pageCount={book.pageCount}
-              cover={book.cover}
+              releaseYear={book.release_year}
+              pageCount={book.page_count}
+              cover={this.state.coverArt[book.id-1].cover}
               series={book.series}
-              readStatus={book.readStatus}
+              readStatus={book.read_status}
               rating={book.rating}
               dark={this.props.dark}
               key={book.id}
