@@ -1,5 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Play around book management project with React
+Connection to a backend API written in Go 
+
 ## Available Scripts
 
 In the project directory, you can run:
