@@ -42,7 +42,7 @@ class App extends Component {
     dark: false,
   };
 
-  toggleDarkMode = async () => {
+  toggleDarkMode = () => {
     this.setState({ dark: !this.state.dark });
   }
 
